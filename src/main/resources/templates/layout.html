@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="description" content="Metaclip interpreter">
+		<meta name="viewport" content="width=device-width">
+		<title>METACLIP: Metadata for climate products</title>
+		<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+		<link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+		<link rel="stylesheet" th:href="@{/css/dropzone.css?v=0.6}" />
+		<link rel="stylesheet" th:href="@{/css/metaclip.css?v=0.6}">
+		<link rel='shortcut icon' type='image/x-icon' th:href='@{/favicon.ico}'/>
+		<script th:src="@{/js/jquery.min.js}"></script>
+		<script th:src="@{/js/bootstrap.min.js}"></script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139152680-1"></script>
+		<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-139152680-1');</script>
+	</head>
+	<body>
+		<div class="container-fluid h-100 p-0">
+			<nav class="navbar navbar-dark sticky-top navbar-expand-lg bg-dark py-0">
+				<a class="navbar-brand" th:href="@{/}">
+					<img th:src="@{/img/rdf_logo.png}" class="px-2"/> METACLIP: Metadata for climate products
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="navbar-collapse collapse" id="navbarContent">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item" th:classappend="${#httpServletRequest.getRequestURI() == '/' ? 'active':''}">
+							<a class="nav-link" th:href="@{/}">Home</a>
+						</li>
+						<li class="nav-item" th:classappend="${#httpServletRequest.getRequestURI() == '/about' ? 'active':''}">
+							<a class="nav-link" th:href="@{/about}">About</a>
+						</li>
+						<li class="nav-item" th:classappend="${#httpServletRequest.getRequestURI() == '/contributors' ? 'active':''}">
+							<a class="nav-link" th:href="@{/contributors}">Contributors</a>
+						</li>
+						<li class="nav-item" th:classappend="${#httpServletRequest.getRequestURI() == '/contact' ? 'active':''}">
+							<a class="nav-link" th:href="@{/contact}">Contact</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+			<div class="row flex-fill" style="height:calc(100% - 50px);">
+				<th:block layout:fragment="main"></th:block>
+			</div>
+		</div>
+		<th:block layout:fragment="scripts"></th:block>
+	</body>
+</html>

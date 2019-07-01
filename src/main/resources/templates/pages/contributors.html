@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="layout">
+	<head>
+		<title>METACLIP: Metadata for climate products</title>
+	</head>
+	<body>
+		<th:block layout:fragment="main">
+			<main role="main" class="col-md-12 ml-sm-auto col-lg-12 p-5 static contributors">
+				<h1 id="metaclip-project-overview">Contributors</h1>
+				<table class="table">
+					<tbody>
+    				<tr>
+    					<td>Joaquín Bedia<br/>Daniel San Martín</td>
+    					<td><img th:src="@{/img/institutions/predictia.png}" class="img-fluid" alt="Predictia Intelligent Data Solutions SL" title="Predictia Intelligent Data Solutions SL"/></td>
+    				<tr>
+    					<td>José Manuel Gutiérrez<br/>Maialen Iturbide</td>
+    					<td><img th:src="@{/img/institutions/csic.png}" class="img-fluid" alt="CSIC" title="CSIC"/></td>
+    				</tr>
+    				<tr>
+    					<td>Sixto Herrera</td>
+    					<td><img th:src="@{/img/institutions/unican.png}" class="img-fluid" alt="Universidad de Cantabria" title="Universidad de Cantabria"/></td>
+    				</tr>
+				</table>
+				<h2 class="text-center">
+					<a th:href="@{/contact}">Contact us</a> to contribute or collaborate at our <a href="https://github.com/metaclip" target="_blank"><i class="fa fa-github"></i> Github project</a>!
+				</h2>
+			</main>
+		</th:block>
+	</body>
+</html>

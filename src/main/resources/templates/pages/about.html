@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="layout">
+	<head>
+		<title>METACLIP: METAdata for CLImate Products</title>
+		<style type="text/css">
+			li{color:#563d7c;}
+			li span{color:#202124;}
+		</style>
+	</head>
+	<body>
+		<th:block layout:fragment="main">
+			<main role="main" class="col-md-12 ml-sm-auto col-lg-12 p-5 static">
+				<h1 id="metaclip-project-overview">About METACLIP</h1>
+				<h2>Overview</h2>
+				<p>Having an effective way of dealing with data provenance is a necessary condition to ensure reproducibility, helping to build trust and credibility 
+				in research outcomes and the data products delivered.</p>
+				<p>METACLIP is a language-independent framework envisaged to tackle the problem of climate product provenance description. The solution is based on 
+				semantics exploiting the web standard Resource Description Framework (<a href="https://www.w3.org/RDF/" target="_blank">RDF</a>), building on domain-specific extensions of standard vocabularies (e.g. PROV-O) 
+				describing the different aspects involved in climate product generation.</p>
+
+				<h2>Key strengths</h2>
+				<ul>
+					<li><span><a href="https://github.com/metaclip" target="_blank"><i class="fa fa-github"></i> Open</a> and community-driven initiative</span></li>
+					<li><span>Flexible and powerful, allowing encoding of any conceptual framework</span></li> 
+					<li><span>Adds domain-specific semantics to the schema, based on expert knowledge and climate community support</span></li> 
+					<li><span>Provenance information is granular and accessible to non-experts</span></li>
+					<li><span>Extensible and reusable, importing from already existing standard vocabularies</span></li> 
+					<li><span>User-friendly visual representation tailored to the needs of users with different needs and varying levels expertise</span></li>
+				</ul>
+ 
+				<h2>Linked International Projects and Initiatives</h2>
+				<p>METACLIP is aligned with currently on-going initiatives facing the problems of data provenance and metadata encoding of climate products in different contexts:</p>
+				<ul>
+					<li><span>The <a href="http://www.value-cost.eu/" target="_blank">COST Action VALUE</a>, providing a European Network for a comprehensive validation and development of statistical downscaling methods.</span></li>
+					<li><span>The <a href="https://climate.copernicus.eu/quality-assurance-multi-model-seasonal-forecast-products" target="_blank">QA4Seas Project</a> (Quality Assurance for Multi-model Seasonal Forecast Products), aimed at developing a strategy for the evaluation and quality control (EQC) of the multi-model seasonal forecasts provided by the Copernicus Climate Change Service (C3S) to respond to the needs identified among a wide range of stakeholders.</span></li>
+				</ul>
+
+				<p style="text-align:center">
+					<img th:src="@{/img//workflow_schema.png}" class="img-fluid" style="max-width:800px"/><br/>
+					<strong>Example figure</strong>. <em>Schematic representation of a data workflow to generate a verification map (Area under the ROC Curve, 
+					based on tercile categories) of a seasonal forecasting system (ECMWF System-4) of mean JJA global temperature. The verifying reference is the 
+					ECMWF ERA-Interim reanalysis. All the necessary metadata for the reconstruction of the figure is encoded in RDF (Resource Description Framework) 
+					and embedded in the final outcome (in this case a jpeg file, but any other type may serve as well). 
+					See <a href="http://www.metaclip.org">this demo</a> for a graphical representation of the metadata schema associated with 
+					this figure.</em></p>
+			</main>
+		</th:block>
+	</body>
+</html>

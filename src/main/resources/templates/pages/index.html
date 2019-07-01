@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="layout">
+	<head>
+		<title>METACLIP: Metadata for climate products</title>
+	</head>
+	<body>
+		<th:block layout:fragment="main">
+			<main role="main" class="col-md-12 ml-sm-auto col-lg-12" id="front" style="min-height:100%">
+				<form th:action="@{/image}" id="myDropzone" class="dropzone"></form>
+				<div class="gallery">
+					<div class="filter-button-group button-group">
+						<span style="font-size:1.5em;padding-right:1.5em;vertical-align:middle;font-weight:lighter;">...or use an example from the gallery:</span>
+						<button class="btn btn-primary" data-filter="*">Show all</button>
+						<button class="btn btn-primary" data-filter=".climate-change">Climate Change</button>
+						<button class="btn btn-primary" data-filter=".seasonal-forecasting">Seasonal Forecasting</button>
+						<button class="btn btn-primary" data-filter=".observations">Observations</button>
+					</div>
+					<div class="grid row" id="">
+						<div class="grid-item seasonal-forecasting" title="Spatial plots of RPSS" data-sample="RPSS_MAP">
+							<div class="image">
+								<img src="img/samples/rpss_map.png" alt="Validation of seasonal forecasts: Spatial plots of RPSS" />
+							</div>
+							<div class="image-caption"><span>Spatial plots of RPSS</span></div>
+						</div>
+						<div class="grid-item seasonal-forecasting" title="El Niño plumes" data-sample="ENSO_PLUME">
+							<div class="image">
+								<img src="img/samples/enso_plume.png" alt="Validation of seasonal forecasts: El Niño plumes" />
+							</div>
+							<div class="image-caption"><span>Validation of seasonal forecasts: El Niño plumes</span></div>
+						</div>
+						<div class="grid-item observations" title="Climate index" data-sample="ETCCDI_MAP">
+							<div class="image">
+								<img src="img/samples/etccdi_map.png" alt="Climate index" />
+							</div>
+							<div class="image-caption"><span>Climate index</span></div>
+						</div>
+						<div class="grid-item climate-change" title="Bias map of Euro-CORDEX ensemble climate index" data-sample="EUROCORDEX_ENSEMBLE_BIAS">
+							<div class="image">
+								<img src="img/samples/eurocordex_ensemble_bias.png" alt="Bias map of Euro-CORDEX ensemble climate index" />
+							</div>
+							<div class="image-caption"><span>Bias map of Euro-CORDEX ensemble climate index</span></div>
+						</div>
+						<div class="grid-item climate-change" title="Bias-corrected map of Euro-CORDEX SU Index projection" data-sample="EUROCORDEX_INDEX_BIAS">
+							<div class="image">
+								<img src="img/samples/eurocordex_index_bias.png" alt="Bias-corrected map of Euro-CORDEX SU Index projection" />
+							</div>
+							<div class="image-caption"><span>Bias-corrected map of Euro-CORDEX SU Index projection</span></div>
+						</div>
+					</div>
+					<h2 style="padding:2em 0">More examples will be included in the near future!</h2>
+				</div>
+				<div id="loader" class="loader"></div>
+			</main>
+			<nav class="col-md-3 d-none d-md-block bg-light sidebar hidden" id="nav" style="height:100%">
+				<div class="sidebar-sticky">
+					<div class="nav flex-column p-3">
+						<form>
+							<div class="form-group py-1">
+								<div class="py-1">
+									<button type="button" id="homeButton" class="btn btn-secondary btn-block" title="Home"><i class="fa fa-home px-1" aria-hidden="true"></i> Home</button>
+								</div>
+								<div class="py-1">
+									<button type="button" id="restartButton" class="btn btn-secondary btn-block" title="Restart"><i class="fa fa-retweet px-1" aria-hidden="true"></i> Graph restart</button>
+								</div>
+								<div class="py-1">
+									<button type="button" id="positionsButton" class="btn btn-secondary btn-block" title="Export the image with this layout"><i class="fa fa-download px-1" aria-hidden="true"></i> Layout-image export</button>
+								</div>
+								<div class="py-1">
+									<button type="button" id="fitButton" class="btn btn-secondary btn-block" title="Fit graph to the window"><i class="fa fa-expand px-1" aria-hidden="true"></i> Fit graph to window</button>
+								</div>
+							</div>
+						</form>
+						<div id="node-full-info" style="display:none">
+							<div class="info-panel px-2"></div>
+						</div>
+					</div>
+				</div>
+			</nav>
+			<main role="main" class="col-md-9 ml-sm-auto col-lg-9 p-0 hidden" id="main" style="height:100%">
+				<div id="metaclip-graph" class="metaclip-graph"></div>
+				<img src="" id="metaclip-thumbnail" title="Click to maximize/minimize" data-size="thumbnail" class="metaclip-thumbnail"/>
+			</main>
+		</th:block>
+		<th:block layout:fragment="scripts">
+			<script type="text/javascript" th:src="@{/js/d3.min.js}"></script>
+			<script type="text/javascript" th:src="@{/js/masonry.pkgd.min.js}"></script>
+			<script type="text/javascript" th:src="@{/js/FileSaver.js}"></script>
+			<script type="text/javascript" th:src="@{/js/dropzone.js}"></script>
+			<script type="text/javascript" th:src="@{/js/metaclip.js?v=0.91}"></script>
+			<script type="text/javascript" th:src="@{/js/ui.js?v=0.8}"></script>
+		</th:block>
+	</body>
+</html>

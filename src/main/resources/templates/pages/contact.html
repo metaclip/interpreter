@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="layout">
+	<head>
+		<title>METACLIP: Metadata for climate products</title>
+	</head>
+	<body>
+		<th:block layout:fragment="main">
+			<main role="main" class="col-md-12 ml-sm-auto col-lg-12 p-5 static">
+				<h1 id="metaclip-project-overview">Contact</h1>
+				<div class="alert alert-success" role="alert" th:if="${success != null}">
+					<h4 style="line-height:180%">Thank you! Your message has been sent. The Metaclip team will contact you as soon as possible.</h4>
+				</div>
+				<form th:action="@{/contact}" class="form-horizontal" role="form" method="post" th:if="${success == null}">
+					<div class="form-group row required">
+						<div class="col-sm-3 labels">
+							<label for="name" class="control-label">Name:</label>
+							<label class="error" for="name" th:if="${#fields.hasErrors('contact.name')}" th:errors="*{contact.name}">Not valid</label>
+						</div>								
+						<div class="col-sm-9" th:class="${#fields.hasErrors('contact.name')? 'col-sm-9 has-error' : 'col-sm-9'}">
+							<input type="text" class="form-control" th:field="${contact.name}" id="name" placeholder="Enter your name" th:value="${contact.name}"/>
+						</div>
+					</div>
+					<div class="form-group row required">
+						<div class="col-sm-3 labels">
+							<label for="email" class="control-label">Email:</label>
+							<label class="error" for="email" th:if="${#fields.hasErrors('contact.email')}" th:errors="*{contact.email}">Not valid</label>
+						</div>
+						<div class="col-sm-9" th:class="${#fields.hasErrors('contact.email')? 'col-sm-9 has-error' : 'col-sm-9'}">
+							<input type="email" class="form-control" th:field="${contact.email}" id="email" placeholder="Enter your email" th:value="${contact.email}" />
+						</div>
+					</div>
+					<div class="form-group row required">
+						<div class="col-sm-3 labels">
+							<label for="message" class="control-label">Message:</label>
+							<label class="error" for="message" th:if="${#fields.hasErrors('contact.message')}" th:errors="*{contact.message}">Not valid</label>
+						</div>
+						<div class="col-sm-9" th:class="${#fields.hasErrors('contact.message')? 'col-sm-9 has-error' : 'col-sm-9'}">
+							<textarea class="form-control" rows="3" th:field="${contact.message}" id="message" placeholder="Write your message"></textarea>
+						</div>
+					</div>
+					<div class="form-group row required">
+						<div class="col-sm-3 labels">
+		 					<label for="captcha" class="control-label">Enter the text in the image:</label>
+							<label class="error" for="captcha" th:if="${#fields.hasErrors('contact.captcha')}">Not valid</label>
+		 				</div>
+						<div class="col-sm-9" th:class="${#fields.hasErrors('contact.captcha')? 'col-sm-9 has-error' : 'col-sm-9'}">
+							<img id="captcha-image" th:src="@{/captcha/image}"/><br/>
+							<input type="text" class="form-control" th:field="${contact.captcha}" id="captcha" th:value="${contact.captcha}"/>				
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-12 text-center">
+							<button type="submit" class="btn btn-primary btn-default px-5">Send</button>
+						</div>
+					</div>
+				</form>
+			</main>
+		</th:block>
+	</body>
+</html>
